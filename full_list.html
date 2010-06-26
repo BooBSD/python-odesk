@@ -20,6 +20,7 @@
     <script type="text/javascript" src="static/jquery.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
     <link rel="top" title="python-odesk v0.1.0.alpha documentation" href="index.html" />
+    <link rel="next" title="How to" href="how_to.html" />
     <link rel="prev" title="Getting started" href="getting_started.html" /> 
   </head>
   <body>
@@ -29,6 +30,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="how_to.html" title="How to"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="getting_started.html" title="Getting started"
              accesskey="P">previous</a> |</li>
@@ -51,6 +55,9 @@
             <h4>Previous topic</h4>
             <p class="topless"><a href="getting_started.html"
                                   title="previous chapter">Getting started</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="how_to.html"
+                                  title="next chapter">How to</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
               <li><a href="sources/full_list.txt"
@@ -246,10 +253,66 @@
 </ul>
 <blockquote>
 <ul class="simple">
-<li>get_provider_report(self, provider_id, selects, wheres, hours=False)</li>
-<li>get_company_report(self, company_id, selects, wheres, hours=False)</li>
-<li>get_agency_report(self, company_id, agency_id, selects, wheres, hours=False)</li>
-<li>selects and wheres are lists of params. They are joined while building the param string</li>
+<li>get_provider_report(self, provider_id, query, hours=False)</li>
+<li>get_company_report(self, company_id, query, hours=False)</li>
+<li>get_agency_report(self, company_id, agency_id, query, hours=False)</li>
+<li>query is the odesk.Query object</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>FinReports(GdsNamespace)</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>get_provider_billings(self, provider_id, query)</li>
+<li>get_provider_teams_billings(self, provider_team_id, query)</li>
+<li>get_provider_companies_billings(self, provider_company_id, query)</li>
+<li>get_provider_earnings(self, provider_id, query)</li>
+<li>get_provider_teams_earnings(self, provider_team_id, query)</li>
+<li>get_provider_companies_earnings(self, provider_company_id, query)</li>
+<li>get_buyer_teams_billings(self, buyer_team_id, query)</li>
+<li>get_buyer_companies_billings(self, buyer_company_id, query)</li>
+<li>get_buyer_teams_earnings(self, buyer_team_id, query)</li>
+<li>get_buyer_companies_earnings(self, buyer_company_id, query)</li>
+<li>get_financial_entities(self, accounting_id, query)</li>
+<li>get_financial_entities_provider(self, provider_id, query)</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Q(object)</li>
+</ul>
+<blockquote>
+<ul>
+<li><p class="first">Simple query constructor</p>
+</li>
+<li><p class="first">Example of usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Query(object)</li>
+</ul>
+<blockquote>
+<ul>
+<li><p class="first">Simple query</p>
+</li>
+<li><p class="first">DEFAULT_TIMEREPORT_FIELDS = [&#8216;worked_on&#8217;, &#8216;team_id&#8217;, &#8216;team_name&#8217;, &#8216;task&#8217;, &#8216;memo&#8217;,&#8217;hours&#8217;,]</p>
+</li>
+<li><p class="first">DEFAULT_FINREPORT_FIELDS = [&#8216;reference&#8217;, &#8216;date&#8217;, &#8216;buyer_company__id&#8217;, &#8216;buyer_company_name&#8217;, &#8216;buyer_team__id&#8217;, &#8216;buyer_team_name&#8217;, &#8216;provider_company__id&#8217;, &#8216;provider_company_name&#8217;, &#8216;provider_team__id&#8217;, &#8216;provider_team_name&#8217;, &#8216;provider__id&#8217;, &#8216;provider_name&#8217;, &#8216;type&#8217;, &#8216;subtype&#8217;, &#8216;amount&#8217;]</p>
+</li>
+<li><p class="first">__init__(self, select, where=None, order_by=None)</p>
+</li>
+<li><p class="first">__str__(self)</p>
+</li>
+<li><p class="first">Examples of usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="o">.</span><span class="n">DEFAULT_TIMEREPORT_FIELDS</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s">&#39;2010-05-01&#39;</span><span class="p">))</span>
+<span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;date&#39;</span><span class="p">,</span> <span class="s">&#39;type&#39;</span><span class="p">,</span> <span class="s">&#39;amount&#39;</span><span class="p">],</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;date&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()))</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </blockquote>
 </div>
@@ -267,6 +330,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="how_to.html" title="How to"
+             >next</a> |</li>
         <li class="right" >
           <a href="getting_started.html" title="Getting started"
              >previous</a> |</li>
