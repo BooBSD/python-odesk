@@ -3,7 +3,7 @@ Python bindings to odesk API
 python-odesk version 0.1
 (C) 2010 oDesk
 """
-import odesk
+import odesk2
 
 from datetime import date
 
@@ -16,7 +16,7 @@ SECRET_KEY = None
 def fin_reports(public_key, secret_key):
     print "Emulating web-based app"
     #Instantiating a client without an auth token
-    client = odesk.Client(public_key, secret_key)
+    client = odesk2.Client(public_key, secret_key)
     print "Please to this URL (authorize the app if necessary):"
     print client.auth.auth_url()
     print "After that you should be redirected back to your app URL with " + \
@@ -29,7 +29,7 @@ def fin_reports(public_key, secret_key):
     #Not strictly necessary here (could just set `client.auth_token`), but 
     #typical for web apps, which wouldn't probably keep client instances 
     #between requests
-    client = odesk.Client(public_key, secret_key, auth_token)
+    client = odesk2.Client(public_key, secret_key, auth_token)
     print client.finreports.get_provider_billings('1111',  
                     odesk.Query(select=['date', 'type',
                                         'amount'], 

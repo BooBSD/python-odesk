@@ -3,7 +3,7 @@ Python bindings to odesk API
 python-odesk version 0.1
 (C) 2010 oDesk
 """
-import odesk
+import odesk2
 
 USERNAME = None
 PASSWORD = None
@@ -14,7 +14,7 @@ PASSWORD = None
 def web_based_app(username, password):
     print "Emulating web-based app"
     #Instantiating a client without an auth token
-    client = odesk.SessionClient(username, password)
+    client = odesk2.SessionClient(username, password)
     print client.login()
     print "HR: teams"
     print client.hr.get_teams()

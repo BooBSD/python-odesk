@@ -3,7 +3,7 @@ Python bindings to odesk API
 python-odesk version 0.1
 (C) 2010 oDesk
 """
-from odesk import *
+from odesk2 import *
 from mock import Mock, patch
 import urllib2
 
@@ -1022,12 +1022,12 @@ def test_get_financial_entities_provider():
 
 
 def test_get_version():
-    import odesk
-    odesk.VERSION = (1, 2, 3, 'alpha', 2)
+    import odesk2
+    odesk2.VERSION = (1, 2, 3, 'alpha', 2)
     
     assert get_version() == '1.2.3 alpha 2', get_version()
     
-    odesk.VERSION = (1, 2, 3, 'alpha', 0)
+    odesk2.VERSION = (1, 2, 3, 'alpha', 0)
     assert get_version() == '1.2.3 pre-alpha', get_version()
     
 task_dict = {u'tasks': 'task1' 
