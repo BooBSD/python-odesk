@@ -5,7 +5,7 @@ readme = open(os.path.join(os.path.dirname(__file__), 'README'))
 README = readme.read()
 readme.close()
 
-version = __import__('odesk').get_version()
+version = __import__('odesk2').get_version()
 
 
 setup(name='python-odesk',
@@ -16,7 +16,7 @@ setup(name='python-odesk',
       author_email='python@odesk.com',
       maintainer='Volodymyr Hotsyk',
       maintainer_email='gotsyk@gmail.com',      
-      packages = ['odesk',],
+      packages = ['odesk2',],
       license = 'BSD',
       download_url ='http://github.com/odesk/python-odesk',
       url='http://github.com/odesk/python-odesk',
