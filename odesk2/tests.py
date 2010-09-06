@@ -1,6 +1,6 @@
 """
 Python bindings to odesk API
-python-odesk version 0.1
+python-odesk version 0.2
 (C) 2010 oDesk
 """
 from odesk2 import *
@@ -363,6 +363,7 @@ teamrooms_dict = {'teamrooms':
                   'snapshots': {'user': 'test', 'snapshot': 'test'}
                                }
 
+
 def return_teamrooms_json():
     return json.dumps(teamrooms_dict)
 
@@ -391,8 +392,50 @@ def test_team():
         [teamrooms_dict['snapshots']['snapshot']]), te.get_workdiaries(1, 1, 1)
     
     
-    
+stream_dict = {'streams': {'snapshot': [{u'uid': u'test', 
+ u'portrait_50_img': u'http://www.odesk.com/att/~~test', 
+ u'account_status': u'', 
+ u'billing_status': u'billed.active', 
+ u'screenshot_img_thmb': u'http://team.odesk.com/team/images.cache/test.jpg', 
+ u'screenshot_url': u'https://team.odesk.com/team/scripts/image.jpg', 
+ u'timezone': u'', u'digest': u'0', u'user_id': u'test', 
+ u'company_id': u'test:test', u'report_url': u'http://team.url',
+ u'profile_url': u'http://www.odesk.com/users/~~test', 
+ u'status': u'NORMAL', 
+ u'report24_img': u'http://chart.apis.google.com/chart.png',
+ u'screenshot_img': u'http://team.odesk.com/team/images/test:test/test/2010/01/01/test.jpg', 
+ u'memo': u'Bug 1: Test:Test', 
+ u'time': u'test', u'cellts': u'test', 
+ u'screenshot_img_med': u'http://team.odesk.com/team/scripts/image.jpg',
+ u'user': {u'first_name': u'Test', u'last_name': u'Test', 
+  u'uid': u'test', u'timezone_offset': u'10000', u'creation_time': u'', 
+  u'mail': u'test@odesk.com', u'timezone': u'Europe/Athens', 
+  u'messenger_id': u'', u'messenger_type': u''}, u'computer_name': u'laptop', 
+  u'active_window_title': u'2010-01-01 - Google Chrome',
+  u'task': {u'code': u'484',  u'id': u'{type=bugzilla,cny=test:test,code=1}', 
+   u'description': u'Bug 1: Test: Test'}, 
+ u'keyboard_events_count': u'1', u'mouse_events_count': u'1', u'activity': u'1', 
+ u'client_version': u'Linux/2.0.0', u'screenshot_img_lrg': u'http://test.com', 
+ u'portrait_img': u'http://www.test.com'},]}}    
 
+
+def return_stream_json():
+    return json.dumps(stream_dict)
+
+def patched_urlopen_stream(request, *args, **kwargs):
+    request.read = return_stream_json
+    return request
+
+@patch('urllib2.urlopen', patched_urlopen_stream)  
+def test_stream():
+    te = Team(get_client())
+    
+    #test get_stream
+    assert te.get_stream('test', 'test') == stream_dict['streams']['snapshot'],\
+         te.get_stream('test', 'test')
+
+    
+    
 userroles = {u'userrole': 
              [{u'parent_team__reference': u'1', 
               u'user__id': u'testuser', u'team__id': u'test:t', 
@@ -610,10 +653,10 @@ def test_get_hrv2_team_tasks():
 def test_get_hrv2_userroles():
     hr = get_client().hr        
     #test get_user_role
-    assert hr.get_user_role(user_id=1) == hr_dict['userroles'],\
-                                                 hr.get_user_role(user_id=1)
-    assert hr.get_user_role(team_id=1) == hr_dict['userroles'],\
-                                                 hr.get_user_role(team_id=1)
+    assert hr.get_user_role(user_reference=1) == hr_dict['userroles'],\
+                                                 hr.get_user_role(user_reference=1)
+    assert hr.get_user_role(team_reference=1) == hr_dict['userroles'],\
+                                                 hr.get_user_role(team_reference=1)
     assert hr.get_user_role() == hr_dict['userroles'], hr.get_user_role()
 
         

@@ -1,11 +1,12 @@
 """
 Python bindings to odesk API
-python-odesk version 0.1
+python-odesk version 0.2
 (C) 2010 oDesk
 """
-VERSION = (0, 1, 1, 'final', 1)
+VERSION = (0, 2, 0, 'alpha', 1)
 
 from datetime import date
+
 
 def get_version():
     version = '%s.%s' % (VERSION[0], VERSION[1])
@@ -29,6 +30,8 @@ try:
     import json
 except ImportError:
     import simplejson as json
+
+from odesk2.utils import *
 
 
 class HTTP400BadRequestError(urllib2.HTTPError):
@@ -146,6 +149,10 @@ class BaseClient(object):
             data['http_method'] = method.lower()
         #End of hack
 
+        self.last_method = method
+        self.last_url = url
+        self.last_data = data
+
         query = self.urlencode(data)
         if method == 'GET':
             url += '?' + query
@@ -189,6 +196,9 @@ class Client(BaseClient):
         self.time_reports = TimeReports(self)
         self.finreports = Finreports(self)
         self.otask = OTask(self)
+        self.finance = Finance(self)
+        self.ticket = Ticket(self)
+        self.url = Url(self)
 
     #Shortcuts for HTTP methods
     def get(self, url, data={}):
@@ -209,7 +219,7 @@ class SessionClient(Client):
     Session based auth API client
     """
     version = 1
-    base_url = 'https://www.odesk.com/api/'    
+    base_url = 'https://www.odesk.com/api/'
 
     def __init__(self, odesk_username=None, odesk_password=None, 
                  session_id=None, cookies=None, format='json'):
@@ -219,7 +229,6 @@ class SessionClient(Client):
         self.format = format
         self.cookies = cookies
         #Namespaces
-        self.auth = Auth(self)
         self.team = Team(self)
         self.hr = HR2(self)
         self.provider = Provider(self)
@@ -227,6 +236,9 @@ class SessionClient(Client):
         self.time_reports = TimeReports(self)
         self.finreports = Finreports(self)
         self.otask = OTask(self)
+        self.finance = Finance(self)
+        self.ticket = Ticket(self)
+        self.url = Url(self)
 
     def urlencode(self, data={}):
         data = data.copy()
@@ -342,7 +354,7 @@ class Auth(Namespace):
     def revoke_token(self):
         url = 'keys/token'
         data = {'api_token': self.client.api_token,
-                'api_key': self.client.public_key,}
+                'api_key': self.client.public_key}
         return self.delete(url, data)
     
     
@@ -360,7 +372,7 @@ class Team(Namespace):
         return teamrooms
 
     def get_snapshots(self, team_id, online='now'):
-        url = 'teamrooms/%s' % team_id
+        url = 'snapshots/%s' % team_id
         result = self.get(url, {'online': online})
         snapshots = result['teamroom']['snapshot']
         if not isinstance(snapshots, list):
@@ -378,6 +390,17 @@ class Team(Namespace):
         #not sure we need to return user
         return result['snapshots']['user'], snapshots
 
+    def get_stream(self, company_id, team_id, user_id=None,\
+                   from_ts=None):
+        url = 'streams/%s:%s' % (company_id, team_id)
+        if user_id:
+            url += '/%s' % (user_id)
+        if from_ts:
+            data = {'from_ts': from_ts}
+        else:
+            data = {}
+        result = self.get(url, data)
+        return result['streams']['snapshot']
 
 class HR2(Namespace):
     """
@@ -388,8 +411,8 @@ class HR2(Namespace):
 
     '''user api'''
 
-    def get_user(self, user_id):
-        url = 'users/%s' % str(user_id)
+    def get_user(self, user_reference):
+        url = 'users/%s' % str(user_reference)
         result = self.get(url)
         return result['user']
 
@@ -400,21 +423,21 @@ class HR2(Namespace):
         result = self.get(url)
         return result['companies']
 
-    def get_company(self, company_id):
-        url = 'companies/%s' % str(company_id)
+    def get_company(self, company_referece):
+        url = 'companies/%s' % str(company_referece)
         result = self.get(url)
         return result['company']
 
-    def get_company_teams(self, company_id):
-        url = 'companies/%s/teams' % str(company_id)
+    def get_company_teams(self, company_referece):
+        url = 'companies/%s/teams' % str(company_referece)
         result = self.get(url)
         return result['teams']
 
-    def get_company_tasks(self, company_id):
+    def get_company_tasks(self, company_referece):
         raise APINotImplementedException("API doesn't support this call yet")
 
-    def get_company_users(self, company_id, active=True):
-        url = 'companies/%s/users' % str(company_id)
+    def get_company_users(self, company_referece, active=True):
+        url = 'companies/%s/users' % str(company_referece)
         if active:
             data = {'status_in_company': 'active'}
         else:
@@ -429,17 +452,17 @@ class HR2(Namespace):
         result = self.get(url)
         return result['teams']
 
-    def get_team(self, team_id, include_users=False):
-        url = 'teams/%s' % str(team_id)
+    def get_team(self, team_reference, include_users=False):
+        url = 'teams/%s' % str(team_reference)
         result = self.get(url, {'include_users': include_users})
         #TODO: check how included users returned
         return result['team']
 
-    def get_team_tasks(self, team_id):
+    def get_team_tasks(self, team_reference):
         raise APINotImplementedException("API doesn't support this call yet")
 
-    def get_team_users(self, team_id, active=True):
-        url = 'teams/%s/users' % str(team_id)
+    def get_team_users(self, team_reference, active=True):
+        url = 'teams/%s/users' % str(team_reference)
         if active:
             data = {'status_in_team': 'active'}
         else:
@@ -447,13 +470,13 @@ class HR2(Namespace):
         result = self.get(url, data)
         return result['users']
 
-    def post_team_adjustment(self, team_id, engagement_id, amount, comments,
-                             notes):
+    def post_team_adjustment(self, team_reference, engagement_reference,
+                             amount, comments, notes):
         '''
         Add bonus to engagement
         '''
-        url = 'teams/%s/adjustments' % str(team_id)
-        data = {'engagement__reference': engagement_id,
+        url = 'teams/%s/adjustments' % str(team_reference)
+        data = {'engagement__reference': engagement_reference,
                 'amount': amount,
                 'comments': comments,
                 'notes': notes}
@@ -467,15 +490,16 @@ class HR2(Namespace):
 
     '''userrole api'''
 
-    def get_user_role(self, user_id=None, team_id=None, sub_teams=False):
+    def get_user_role(self, user_reference=None, team_reference=None, 
+                      sub_teams=False):
         '''
         Returns all the user roles that the user has in the teams.
         '''
         data = {}
-        if user_id:
-            data['user__reference'] = user_id
-        if team_id:
-            data['team__reference'] = team_id
+        if user_reference:
+            data['user__reference'] = user_reference
+        if team_reference:
+            data['team__reference'] = team_reference
         data['include_sub_teams'] = sub_teams
         url = 'userroles'
         result = self.get(url, data)
@@ -483,37 +507,113 @@ class HR2(Namespace):
 
     '''job api'''
 
-    def get_jobs(self):
+    def get_jobs(self, buyer_team_reference=None, include_sub_teams=False,
+                 status=None, created_by=None, created_time_from=None,
+                 created_time_to=None):
         url = 'jobs'
-        result = self.get(url)
+        
+        data = {}
+        if buyer_team_reference:
+            data['buyer_team__reference'] = buyer_team_reference
+        
+        data['include_sub_teams'] = False
+        if include_sub_teams:
+            data['include_sub_teams'] = include_sub_teams            
+        
+        if status:
+            data['status'] = status            
+
+        if created_by:
+            data['created_by'] = created_by            
+
+        if created_time_from:
+            data['created_time_from'] = created_time_from            
+            
+        if created_time_to:
+            data['created_time_to'] = created_time_to            
+                                                        
+        result = self.get(url, data)
         return result['jobs']
 
-    def get_job(self, job_id):
-        url = 'jobs/%s' % str(job_id)
+    def get_job(self, job_reference):
+        url = 'jobs/%s' % str(job_reference)
         result = self.get(url)
         return result['job']
 
     '''offer api'''
 
-    def get_offers(self):
+    def get_offers(self, buyer_team_reference=None, status=None, job_ref=None, 
+                   buyer_ref=None, provider_ref=None, agency_ref=None, 
+                   created_time_from=None, created_time_to=None):
         url = 'offers'
-        result = self.get(url)
+        data = {}
+        if buyer_team_reference:
+            data['buyer_team__reference'] = buyer_team_reference
+        
+        if status:
+            data['status'] = status            
+
+        if job_ref:
+            data['job_ref'] = job_ref     
+
+        if buyer_ref:
+            data['buyer_ref'] = buyer_ref 
+            
+        if provider_ref:
+            data['provider_ref'] = provider_ref    
+            
+        if agency_ref:
+            data['agency_ref'] = agency_ref                                                 
+
+        if created_time_from:
+            data['created_time_from'] = created_time_from            
+            
+        if created_time_to:
+            data['created_time_to'] = created_time_to        
+                    
+        result = self.get(url, data)
         return result['offers']
 
-    def get_offer(self, offer_id):
-        url = 'offers/%s' % str(offer_id)
+    def get_offer(self, offer_reference):
+        url = 'offers/%s' % str(offer_reference)
         result = self.get(url)
         return result['offer']
 
     '''engagement api'''
 
-    def get_engagements(self):
+    def get_engagements(self, buyer_team_reference=None, include_sub_teams=False,
+                 status=None, provider_ref=None, agency_ref=None, 
+                 created_time_from=None, created_time_to=None):
         url = 'engagements'
-        result = self.get(url)
+        
+        data = {}
+        if buyer_team_reference:
+            data['buyer_team__reference'] = buyer_team_reference
+        
+        data['include_sub_teams'] = False
+        if include_sub_teams:
+            data['include_sub_teams'] = include_sub_teams            
+        
+        if status:
+            data['status'] = status            
+
+        if provider_ref:
+            data['provider_ref'] = provider_ref 
+
+        if agency_ref:
+            data['agency_ref'] = agency_ref           
+
+        if created_time_from:
+            data['created_time_from'] = created_time_from            
+            
+        if created_time_to:
+            data['created_time_to'] = created_time_to           
+        
+        result = self.get(url, data)
         return result['engagements']
 
-    def get_engagement(self, engagement_id):
-        url = 'engagements/%s' % str(engagement_id)
+    def get_engagement(self, engagement_reference):
+        url = 'engagements/%s' % str(engagement_reference)
         result = self.get(url)
         return result['engagement']
 
@@ -822,98 +922,67 @@ class OTask(Namespace):
         return self.put(url, {})
 
 
-class Q(object):
-    '''Simple query constructor'''
+class Finance(Namespace):
+    api_url = 'finance/'
+    version = 1
+
+    def get_withdrawal_methods(self):
+        return self.get('withdrawals')
+
+    def post_withdrawal(self, method_ref, amount):
+        url = 'withdrawals/%s' % method_ref
+        data = {'amount': amount}
+        return self.post(url, data)
+
+
+class Ticket(Namespace):
+    api_url = 'tickets/'
+    version = 1
     
-    def __init__(self, arg1, operator=None, arg2=None):
-        self.arg1 = arg1
-        self.operator = operator
-        self.arg2 = arg2
+    def get_topics(self):
+        url = 'topics'
+        result = self.get(url)
+        return result['topics']
+    
+    def get_ticket(self, ticket_key):
+        url = 'tickets/%s' % str(ticket_key)
+        result = self.get(url)
+        return result['ticket']       
 
-    def __and__(self, other):
-        return self.__class__(self, 'AND', other)
+    def post_new_ticket(self, message, topic_id=None, topic_api_ref=None,
+                        email=None, name=None):
+        url = 'tickets'
+        data = {'message': message,
+                'topic_id': topic_id,
+                'topic_api_ref': topic_api_ref,
+                'email': email,
+                'name': name}
+        result = self.post(url, data)
+        return result#TBD
 
-    def __or__(self, other):
-        return self.__class__(self, 'OR', other)
+    def post_reply_ticket(self, ticket_key, message):
+        url = 'tickets/%s' % str(ticket_key)
+        data = {'message': message,}
+        result = self.post(url, data)
+        return result#TBD
+       
+class Url(Namespace):
+    api_url = 'shorturl/'
+    version = 1   
+    
+    def get_shorten(self, long_url):
+        url = 'shorten'
+        data = {'url': long_url}    
+        result = self.get(url, data=data)
+        return result['short_url']             
 
-    def __eq__(self, other):
-        return self.__class__(self, '=', other)
-
-    def __lt__(self, other):
-        return self.__class__(self, '<', other)
-
-    def __le__(self, other):
-        return self.__class__(self, '<=', other)
-
-    def __gt__(self, other):
-        return self.__class__(self, '>', other)
-
-    def __ge__(self, other):
-        return self.__class__(self, '>=', other)
-
-    def arg_to_string(self, arg):
-        if isinstance(arg, self.__class__):
-            if arg.operator:
-                return '(%s)' % arg
-            else:
-                return arg
-        elif isinstance(arg, str):
-            return "'%s'" % arg
-        elif isinstance(arg, date):
-            return "'%s'" % arg.isoformat()
-        else:
-            return str(arg)
+    def get_expand(self, short_url):
+        url = 'expand'
+        data = {'url': short_url}    
+        result = self.get(url, data=data)
+        return result['long_url']          
         
-    def __str__(self):
-        if self.operator:
-            str1 = self.arg_to_string(self.arg1)
-            str2 = self.arg_to_string(self.arg2)
-            return '%s %s %s' % (str1, self.operator, str2)
-        else:
-            return self.arg1
         
-class Query(object):
-    '''Simple query'''
-
-    DEFAULT_TIMEREPORT_FIELDS = ['worked_on',
-                                 'team_id',
-                                 'team_name',
-                                 'task',
-                                 'memo',
-                                 'hours',]
-    DEFAULT_FINREPORT_FIELDS = ['reference',
-                                'date',
-                                'buyer_company__id',
-                                'buyer_company_name',
-                                'buyer_team__id',
-                                'buyer_team_name',
-                                'provider_company__id',
-                                'provider_company_name',
-                                'provider_team__id',
-                                'provider_team_name',
-                                'provider__id',
-                                'provider_name',
-                                'type',
-                                'subtype',
-                                'amount']
-
-    def __init__(self, select, where=None, order_by=None):
-        self.select  = select
-        self.where = where
-        self.order_by = order_by
-
-    def __str__(self):
-        select  = self.select
-        select_str = 'SELECT ' + ', '.join(select)
-        where_str = ''
-        if self.where:
-            where_str = ' WHERE %s' % self.where
-        order_by_str = ''
-        if self.order_by:
-            order_by_str = ' ORDER BY ' + ','.join(self.order_by)
-        return ''.join([select_str, where_str, order_by_str])
-        
-
 class GdsNamespace(Namespace):
     base_url = 'https://www.odesk.com/gds/'
 
@@ -958,6 +1027,15 @@ class TimeReports(GdsNamespace):
     def get_company_report(self, company_id, query, hours=False):
         '''get company's specific time report'''
         url = 'companies/%s' % str(company_id)
+        if hours:
+            url += '/hours'
+        tq = str(query)
+        result = self.get(url, data={'tq': tq})
+        return result
+
+    def get_team_report(self, company_id, team_id, query, hours=False):
+        '''get company's specific time report'''
+        url = 'companies/%s/teams/%s' % (str(company_id), str(team_id))
         if hours:
             url += '/hours'
         tq = str(query)
