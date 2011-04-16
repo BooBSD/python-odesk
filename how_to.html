@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -5,21 +7,22 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>How to &mdash; python-odesk v0.2 alpha 1 documentation</title>
+    <title>How to &mdash; python-odesk v0.4 alpha 1 documentation</title>
     <link rel="stylesheet" href="static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '#',
-        VERSION:     '0.2 alpha 1',
-        COLLAPSE_MODINDEX: false,
+        URL_ROOT:    '',
+        VERSION:     '0.4 alpha 1',
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
-    <link rel="top" title="python-odesk v0.2 alpha 1 documentation" href="index.html" />
+    <link rel="top" title="python-odesk v0.4 alpha 1 documentation" href="index.html" />
     <link rel="next" title="Changelog" href="changelog.html" />
     <link rel="prev" title="Full list of classes and methods" href="full_list.html" /> 
   </head>
@@ -36,51 +39,50 @@
         <li class="right" >
           <a href="full_list.html" title="Full list of classes and methods"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">python-odesk v0.2 alpha 1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">python-odesk v0.4 alpha 1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">How to</a><ul>
-<li><a class="reference external" href="#authenticate">Authenticate</a></li>
-<li><a class="reference external" href="#use-session-based-authentication">Use session based authentication</a></li>
-<li><a class="reference external" href="#get-provider-s-information">Get provider&#8217;s information</a></li>
-<li><a class="reference external" href="#get-teams-information">Get teams` information</a></li>
-<li><a class="reference external" href="#get-trays-and-messages">Get trays and messages</a></li>
-<li><a class="reference external" href="#send-message">Send message</a></li>
-<li><a class="reference external" href="#get-timereports">Get timereports</a></li>
-<li><a class="reference external" href="#get-finreports">Get finreports</a></li>
-<li><a class="reference external" href="#work-with-tasks">Work with tasks</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to</a><ul>
+<li><a class="reference internal" href="#authenticate">Authenticate</a></li>
+<li><a class="reference internal" href="#get-provider-s-information">Get provider&#8217;s information</a></li>
+<li><a class="reference internal" href="#get-teams-information">Get teams` information</a></li>
+<li><a class="reference internal" href="#get-trays-and-messages">Get trays and messages</a></li>
+<li><a class="reference internal" href="#send-message">Send message</a></li>
+<li><a class="reference internal" href="#get-timereports">Get timereports</a></li>
+<li><a class="reference internal" href="#get-finreports">Get finreports</a></li>
+<li><a class="reference internal" href="#work-with-tasks">Work with tasks</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="full_list.html"
-                                  title="previous chapter">Full list of classes and methods</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="changelog.html"
-                                  title="next chapter">Changelog</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="sources/how_to.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="full_list.html"
+                        title="previous chapter">Full list of classes and methods</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="changelog.html"
+                        title="next chapter">Changelog</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="sources/how_to.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -109,15 +111,6 @@
 <span class="c">#typical for web apps, which wouldn&#39;t probably keep client instances</span>
 <span class="c">#between requests</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">odesk</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="s">&#39;your public key&#39;</span><span class="p">,</span> <span class="s">&#39;your secret key&#39;</span><span class="p">,</span> <span class="n">auth_token</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="use-session-based-authentication">
-<span id="session-authenticate"></span><h2>Use session based authentication<a class="headerlink" href="#use-session-based-authentication" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://developers.odesk.com/Authentication">http://developers.odesk.com/Authentication</a></p>
-<p>To authenticate your web application with the python-odesk, using session based authentication with your odesk username and your odesk pasword, use next code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span> <span class="o">=</span> <span class="n">odesk</span><span class="o">.</span><span class="n">SessionClient</span><span class="p">(</span><span class="s">&#39;your odesk username&#39;</span><span class="p">,</span> <span class="s">&#39;your odesk password&#39;</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -190,9 +183,9 @@
 <span id="id4"></span><h2>Get timereports<a class="headerlink" href="#get-timereports" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://developers.odesk.com/Time-Reports-API">http://developers.odesk.com/Time-Reports-API</a></p>
 <p>To get timereports, use, based on the level of the timereports you need:</p>
-<div class="highlight-python"><pre>client.time_reports.get_provider_report(provider_id, query, hours=False):
-client.time_reports.get_company_report(company_id, query, hours=False):
-client.time_reports.get_agency_report(company_id, agency_id, query, hours=False):</pre>
+<div class="highlight-python"><pre>client.timereport.get_provider_report(provider_id, query, hours=False):
+client.timereport.get_company_report(company_id, query, hours=False):
+client.timereport.get_agency_report(company_id, agency_id, query, hours=False):</pre>
 </div>
 <dl class="docutils">
 <dt>Where:</dt>
@@ -203,21 +196,21 @@ client.time_reports.get_agency_report(company_id, agency_id, query, hours=False)
 </dd>
 </dl>
 <p>For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">time_reports</span><span class="o">.</span><span class="n">get_provider_report</span><span class="p">(</span><span class="s">&#39;user1&#39;</span><span class="p">,</span>
-       <span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="o">.</span><span class="n">DEFAULT_TIMEREPORT_FIELDS</span><span class="p">,</span>
-                            <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span> <span class="o">&amp;</span>\
-                                            <span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s">&#39;2010-05-01&#39;</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">timereport</span><span class="o">.</span><span class="n">get_provider_report</span><span class="p">(</span><span class="s">&#39;user1&#39;</span><span class="p">,</span>
+       <span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Query</span><span class="o">.</span><span class="n">DEFAULT_TIMEREPORT_FIELDS</span><span class="p">,</span>
+                    <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span> <span class="o">&amp;</span>\
+                            <span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s">&#39;2010-05-01&#39;</span><span class="p">)))</span>
 
 
-<span class="n">client</span><span class="o">.</span><span class="n">time_reports</span><span class="o">.</span><span class="n">get_provider_report</span><span class="p">(</span><span class="s">&#39;user1&#39;</span><span class="p">,</span>
-       <span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="o">.</span><span class="n">DEFAULT_TIMEREPORT_FIELDS</span><span class="p">,</span>
-                            <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span> <span class="o">&amp;</span>\
-                                            <span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s">&#39;2010-05-01&#39;</span><span class="p">)),</span> <span class="n">hours</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">timereport</span><span class="o">.</span><span class="n">get_provider_report</span><span class="p">(</span><span class="s">&#39;user1&#39;</span><span class="p">,</span>
+       <span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Query</span><span class="o">.</span><span class="n">DEFAULT_TIMEREPORT_FIELDS</span><span class="p">,</span>
+                    <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span> <span class="o">&amp;</span>\
+                            <span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s">&#39;2010-05-01&#39;</span><span class="p">)),</span> <span class="n">hours</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-<span class="n">client</span><span class="o">.</span><span class="n">time_reports</span><span class="o">.</span><span class="n">get_agency_report</span><span class="p">(</span><span class="s">&#39;company1&#39;</span><span class="p">,</span> <span class="s">&#39;agency1&#39;</span><span class="p">,</span>
-       <span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="n">odesk</span><span class="o">.</span><span class="n">Query</span><span class="o">.</span><span class="n">DEFAULT_TIMEREPORT_FIELDS</span><span class="p">,</span>
-                            <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span> <span class="o">&amp;</span>\
-                                            <span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s">&#39;2010-05-01&#39;</span><span class="p">)),</span> <span class="n">hours</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">timereport</span><span class="o">.</span><span class="n">get_agency_report</span><span class="p">(</span><span class="s">&#39;company1&#39;</span><span class="p">,</span> <span class="s">&#39;agency1&#39;</span><span class="p">,</span>
+       <span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="n">select</span><span class="o">=</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Query</span><span class="o">.</span><span class="n">DEFAULT_TIMEREPORT_FIELDS</span><span class="p">,</span>
+                    <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span> <span class="o">&amp;</span>\
+                            <span class="p">(</span><span class="n">odesk</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="s">&#39;worked_on&#39;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="s">&#39;2010-05-01&#39;</span><span class="p">)),</span> <span class="n">hours</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -233,36 +226,36 @@ client.time_reports.get_agency_report(company_id, agency_id, query, hours=False)
 </pre></div>
 </div>
 <p>Methods to get tasks:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">get_team_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">get_user_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">get_company_tasks_full</span><span class="p">(</span><span class="n">company_id</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">get_team_tasks_full</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">get_user_tasks_full</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">get_company_specific_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">get_team_specific_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">get_user_specific_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">get_team_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">get_user_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">get_company_tasks_full</span><span class="p">(</span><span class="n">company_id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">get_team_tasks_full</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">get_user_tasks_full</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">get_company_specific_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">get_team_specific_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">get_user_specific_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Create and update tasks:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">post_company_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">post_team_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">post_user_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">put_company_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">put_team_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">put_user_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">post_company_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">post_team_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">post_user_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">put_company_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">put_team_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">put_user_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Delete tasks:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">delete_company_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">delete_team_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">delete_user_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">delete_all_company_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">delete_all_team_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">delete_all_user_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">delete_company_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">delete_team_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">delete_user_task</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">task_codes</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">delete_all_company_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">delete_all_team_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">delete_all_user_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">team_id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Batch update of tasks:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">otask</span><span class="o">.</span><span class="n">update_batch_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">csv_data</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">client</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">update_batch_tasks</span><span class="p">(</span><span class="n">company_id</span><span class="p">,</span> <span class="n">csv_data</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Where csv_data - is the raw csv data for tasks to be updated. Example:</p>
@@ -290,12 +283,12 @@ client.time_reports.get_agency_report(company_id, agency_id, query, hours=False)
         <li class="right" >
           <a href="full_list.html" title="Full list of classes and methods"
              >previous</a> |</li>
-        <li><a href="index.html">python-odesk v0.2 alpha 1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">python-odesk v0.4 alpha 1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2010, odesk.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+        &copy; Copyright 2010-2011, odesk.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

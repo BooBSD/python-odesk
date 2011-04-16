@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -5,21 +7,22 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Full list of classes and methods &mdash; python-odesk v0.2 alpha 1 documentation</title>
+    <title>Full list of classes and methods &mdash; python-odesk v0.4 alpha 1 documentation</title>
     <link rel="stylesheet" href="static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '#',
-        VERSION:     '0.2 alpha 1',
-        COLLAPSE_MODINDEX: false,
+        URL_ROOT:    '',
+        VERSION:     '0.4 alpha 1',
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
-    <link rel="top" title="python-odesk v0.2 alpha 1 documentation" href="index.html" />
+    <link rel="top" title="python-odesk v0.4 alpha 1 documentation" href="index.html" />
     <link rel="next" title="How to" href="how_to.html" />
     <link rel="prev" title="Getting started" href="getting_started.html" /> 
   </head>
@@ -36,47 +39,47 @@
         <li class="right" >
           <a href="getting_started.html" title="Getting started"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">python-odesk v0.2 alpha 1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">python-odesk v0.4 alpha 1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">Full list of classes and methods</a><ul>
-<li><a class="reference external" href="#exceptions">Exceptions</a></li>
-<li><a class="reference external" href="#base-and-support-classes-and-methods">Base and support classes and methods</a></li>
-<li><a class="reference external" href="#client">Client</a></li>
-<li><a class="reference external" href="#sessionclient">SessionClient</a></li>
-<li><a class="reference external" href="#other-classes">Other classes</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Full list of classes and methods</a><ul>
+<li><a class="reference internal" href="#package-structure">Package structure</a></li>
+<li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li><a class="reference internal" href="#base-and-support-classes-and-methods">Base and support classes and methods</a></li>
+<li><a class="reference internal" href="#client">Client</a></li>
+<li><a class="reference internal" href="#other-classes">Other classes</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="getting_started.html"
-                                  title="previous chapter">Getting started</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="how_to.html"
-                                  title="next chapter">How to</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="sources/full_list.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting_started.html"
+                        title="previous chapter">Getting started</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="how_to.html"
+                        title="next chapter">How to</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="sources/full_list.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -87,8 +90,40 @@
             
   <div class="section" id="full-list-of-classes-and-methods">
 <span id="full-list"></span><h1>Full list of classes and methods<a class="headerlink" href="#full-list-of-classes-and-methods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="package-structure">
+<span id="package"></span><h2>Package structure<a class="headerlink" href="#package-structure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>__init__.py</li>
+<li>auth.py</li>
+<li>exceptions.py</li>
+<li>http.py</li>
+<li>namespace.py</li>
+<li>oauth.py</li>
+<li>utils.py</li>
+<li>routers</li>
+<li>tests.py</li>
+</ul>
+<dl class="docutils">
+<dt><a href="#id1"><span class="problematic" id="id2">|</span></a>__</dt>
+<dd><ul class="first last simple">
+<li>__init__.py</li>
+<li>finance.py</li>
+<li>finreport.py</li>
+<li>hr.py</li>
+<li>mc.py</li>
+<li>oconomy.py</li>
+<li>provider.py</li>
+<li>task.py</li>
+<li>team.py</li>
+<li>ticket.py</li>
+<li>timereport.py</li>
+<li>url.py</li>
+</ul>
+</dd>
+</dl>
+</div>
 <div class="section" id="exceptions">
-<span id="id1"></span><h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>HTTP400BadRequestError(urllib2.HTTPError)</li>
 <li>HTTP401UnauthorizedError(urllib2.HTTPError)</li>
@@ -115,67 +150,58 @@
 <ul class="simple">
 <li>class Namespace</li>
 <li>class GdsNamespace</li>
+<li>class NonAuthGdsNamespace</li>
 </ul>
 </div>
 <div class="section" id="client">
-<span id="id2"></span><h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>class Client(BaseClient)</li>
 </ul>
 <blockquote>
-<ul class="simple">
-<li>def __init__(self, public_key, secret_key, api_token=None, format=&#8217;json&#8217;)</li>
-<li>Variables available inside Client:</li>
+<div><ul>
+<li><dl class="first docutils">
+<dt>def __init__(self, public_key, secret_key, api_token=None,</dt>
+<dd><p class="first last">format=&#8217;json&#8217;, auth=&#8217;simple&#8217;, finance=True, finreport=True,
+hr=True, mc=True, oconomy=True, provider=True,
+task=True, team=True, ticket=True, timereport=True, url=True)</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Variables available inside Client:</p>
+</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>public_key</li>
 <li>secret_key</li>
 <li>api_token</li>
 <li>format</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Routers inside Client:</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
 <li>auth</li>
-<li>team</li>
+<li>finance</li>
+<li>finreport</li>
 <li>hr</li>
-<li>provider</li>
 <li>mc</li>
-<li>time_reports</li>
-<li>finreports</li>
-<li>otask</li>
-</ul>
-</blockquote>
-</blockquote>
-</div>
-<div class="section" id="sessionclient">
-<span id="session-client"></span><h2>SessionClient<a class="headerlink" href="#sessionclient" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>class SessionClient(Client)</li>
-</ul>
-<blockquote>
-<ul class="simple">
-<li>def __init__(self, odesk_username=None, odesk_password=None, session_id=None, cookies=None, format=&#8217;json&#8217;)</li>
-<li>def urlencode(self, data={})</li>
-<li>def urlopen(self, url, data={}, method=&#8217;GET&#8217;)</li>
-<li>def login(self)</li>
-<li>def logout(self)</li>
-<li>Variables available inside Client:</li>
-</ul>
-<blockquote>
-<ul class="simple">
-<li>odesk_username</li>
-<li>odesk_password</li>
-<li>session_id</li>
-<li>cookies</li>
-<li>format</li>
+<li>oconomy</li>
+<li>provider</li>
+<li>task</li>
 <li>team</li>
-<li>hr</li>
-<li>provider</li>
-<li>mc</li>
-<li>time_reports</li>
-<li>finreports</li>
-<li>otask</li>
+<li>ticket</li>
+<li>timereport</li>
+<li>url</li>
 </ul>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
+<p>You can disable any of router except auth, by specifing router_name=False during Client initialization, e.g:</p>
+<blockquote>
+<div>odesk_client = odesk.Client(public_key, secret_key, ticket=False)</div></blockquote>
 </div>
 <div class="section" id="other-classes">
 <span id="classes"></span><h2>Other classes<a class="headerlink" href="#other-classes" title="Permalink to this headline">¶</a></h2>
@@ -183,28 +209,28 @@
 <li>Auth(Namespace)</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>auth_url</li>
 <li>get_frob</li>
 <li>get_token</li>
 <li>check_token</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>Team(Namespace)</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>get_teamrooms(self)</li>
 <li>get_snapshots(self, team_id, online=&#8217;now&#8217;)</li>
 <li>get_workdiaries(self, team_id, username, date=None)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>HR2(Namespace)</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>get_user(self, user_id)</li>
 <li>get_companies(self)</li>
 <li>get_company(self, company_id)</li>
@@ -225,22 +251,22 @@
 <li>get_engagements(self)</li>
 <li>get_engagement(self, engagement_id)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>Provider(Namespace)</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>get_provider(self, provider_ciphertext)</li>
 <li>get_provider_brief(self, provider_ciphertext)</li>
 <li>get_providers (q=&#8217;&#8216;)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>Messages(Namespace)</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>get_trays(self, username=None, paging_offset=0, paging_count=20)</li>
 <li>get_tray_content(self, username, tray, paging_offset=0, paging_count=20)</li>
 <li>get_thread_content(self, username, thread_id, paging_offset=0, paging_count=20)</li>
@@ -252,12 +278,12 @@
 <li>put_threads_undeleted(self, username, thread_ids)</li>
 <li>post_message(self, username, recipients, subject, body, thread_id=None)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>OTask(Namespace)</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>get_company_tasks(self, company_id)</li>
 <li>get_team_tasks(self, company_id, team_id)</li>
 <li>get_user_tasks(self, company_id, team_id, user_id)</li>
@@ -281,23 +307,23 @@
 <li>delete_all_user_tasks(self, company_id, team_id, user_id)</li>
 <li>update_batch_tasks(self, company_id, csv_data)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>TimeReports(GdsNamespace)</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>get_provider_report(self, provider_id, query, hours=False)</li>
 <li>get_company_report(self, company_id, query, hours=False)</li>
 <li>get_agency_report(self, company_id, agency_id, query, hours=False)</li>
 <li>query is the odesk.Query object</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>FinReports(GdsNamespace)</li>
 </ul>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>get_provider_billings(self, provider_id, query)</li>
 <li>get_provider_teams_billings(self, provider_team_id, query)</li>
 <li>get_provider_companies_billings(self, provider_company_id, query)</li>
@@ -311,15 +337,15 @@
 <li>get_financial_entities(self, accounting_id, query)</li>
 <li>get_financial_entities_provider(self, provider_id, query)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul>
 <li><p class="first">utils.py</p>
 <blockquote>
-<ul class="simple">
+<div><ul class="simple">
 <li>Q(object)</li>
 </ul>
 <blockquote>
-<ul>
+<div><ul>
 <li><p class="first">Simple query constructor</p>
 </li>
 <li><p class="first">Example of usage:</p>
@@ -328,12 +354,12 @@
 </div>
 </li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>Query(object)</li>
 </ul>
 <blockquote>
-<ul>
+<div><ul>
 <li><p class="first">Simple query</p>
 </li>
 <li><p class="first">DEFAULT_TIMEREPORT_FIELDS = [&#8216;worked_on&#8217;, &#8216;team_id&#8217;, &#8216;team_name&#8217;, &#8216;task&#8217;, &#8216;memo&#8217;,&#8217;hours&#8217;,]</p>
@@ -351,11 +377,11 @@
 </div>
 </li>
 </ul>
-</blockquote>
+</div></blockquote>
 <ul class="simple">
 <li>Table(object)</li>
 </ul>
-</blockquote>
+</div></blockquote>
 </li>
 </ul>
 </div>
@@ -379,12 +405,12 @@
         <li class="right" >
           <a href="getting_started.html" title="Getting started"
              >previous</a> |</li>
-        <li><a href="index.html">python-odesk v0.2 alpha 1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">python-odesk v0.4 alpha 1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2010, odesk.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+        &copy; Copyright 2010-2011, odesk.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

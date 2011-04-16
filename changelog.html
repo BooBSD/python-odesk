@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -5,21 +7,22 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Changelog &mdash; python-odesk v0.2 alpha 1 documentation</title>
+    <title>Changelog &mdash; python-odesk v0.4 alpha 1 documentation</title>
     <link rel="stylesheet" href="static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '#',
-        VERSION:     '0.2 alpha 1',
-        COLLAPSE_MODINDEX: false,
+        URL_ROOT:    '',
+        VERSION:     '0.4 alpha 1',
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
     <script type="text/javascript" src="static/doctools.js"></script>
-    <link rel="top" title="python-odesk v0.2 alpha 1 documentation" href="index.html" />
+    <link rel="top" title="python-odesk v0.4 alpha 1 documentation" href="index.html" />
     <link rel="next" title="BSD license" href="license.html" />
     <link rel="prev" title="How to" href="how_to.html" /> 
   </head>
@@ -36,45 +39,47 @@
         <li class="right" >
           <a href="how_to.html" title="How to"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">python-odesk v0.2 alpha 1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">python-odesk v0.4 alpha 1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">Changelog</a><ul>
-<li><a class="reference external" href="#version-0-2">Version 0.2</a></li>
-<li><a class="reference external" href="#version-0-1-1">Version 0.1.1</a></li>
-<li><a class="reference external" href="#version-0-1">Version 0.1</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#version-0-4">Version 0.4</a></li>
+<li><a class="reference internal" href="#version-0-2">Version 0.2</a></li>
+<li><a class="reference internal" href="#version-0-1-2">Version 0.1.2</a></li>
+<li><a class="reference internal" href="#version-0-1-1">Version 0.1.1</a></li>
+<li><a class="reference internal" href="#version-0-1">Version 0.1</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="how_to.html"
-                                  title="previous chapter">How to</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="license.html"
-                                  title="next chapter">BSD license</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="sources/changelog.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="how_to.html"
+                        title="previous chapter">How to</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license.html"
+                        title="next chapter">BSD license</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="sources/changelog.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -85,17 +90,42 @@
             
   <div class="section" id="changelog">
 <span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-0-2">
-<span id="id2"></span><h2>Version 0.2<a class="headerlink" href="#version-0-2" title="Permalink to this headline">¶</a></h2>
-<p><em>August 2010</em></p>
+<div class="section" id="version-0-4">
+<span id="id2"></span><h2>Version 0.4<a class="headerlink" href="#version-0-4" title="Permalink to this headline">¶</a></h2>
+<p><em>April 2011</em></p>
 <ul class="simple">
-<li>Added SessionClient to be able to use all bindings&#8217; methods with the session based auth</li>
+<li><em>Incompatibility with previous release</em> Changed name of the otask router to the task</li>
+<li><em>Incompatibility with previous release</em> Chaged name of the oticket router to the ticket ??</li>
+<li><em>Incompatibility with previous release</em> Changed name of the time_report router to the timereport</li>
+<li><em>Incompatibility with previous release</em> Changed name of the finreports router to the finreport</li>
+<li><em>Incompatibility with previous release</em> &#8220;from odesk import <a href="#id3"><span class="problematic" id="id4">*</span></a>&#8221; now import only: &#8220;get_version&#8221;, &#8220;Client&#8221;, &#8220;utils&#8221;</li>
+<li>All routers moved from the __init__.py to the own files in the routers dir.</li>
+<li>All helper classes moved to own modules</li>
+<li>Added logging inside exceptions</li>
+<li>Added possiblity to switch off unused routers inside client class</li>
+<li>Added oconomy, finance routers</li>
+<li>Added initial template for planned oDesk oAuth support (not working yet)</li>
+</ul>
+</div>
+<div class="section" id="version-0-2">
+<span id="id5"></span><h2>Version 0.2<a class="headerlink" href="#version-0-2" title="Permalink to this headline">¶</a></h2>
+<p><em>October 2010</em></p>
+<ul class="simple">
 <li>All helpers classes moved to the utils.py, added Table helper class</li>
 <li><em>Incompatibility with previous release</em> Changed names of the methods&#8217; params to reflect real oDesk params - e.g. company_reference vs company name</li>
 </ul>
 </div>
+<div class="section" id="version-0-1-2">
+<span id="id6"></span><h2>Version 0.1.2<a class="headerlink" href="#version-0-1-2" title="Permalink to this headline">¶</a></h2>
+<p><em>29 September 2010</em></p>
+<p>Bug fix release</p>
+<ul class="simple">
+<li>Fixed check_token method</li>
+<li>Fixed KeyError on empty workdiaries</li>
+</ul>
+</div>
 <div class="section" id="version-0-1-1">
-<span id="id3"></span><h2>Version 0.1.1<a class="headerlink" href="#version-0-1-1" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>Version 0.1.1<a class="headerlink" href="#version-0-1-1" title="Permalink to this headline">¶</a></h2>
 <p><em>15 July 2010</em></p>
 <p>Bug fix release</p>
 <ul class="simple">
@@ -104,7 +134,7 @@
 </ul>
 </div>
 <div class="section" id="version-0-1">
-<span id="id4"></span><h2>Version 0.1<a class="headerlink" href="#version-0-1" title="Permalink to this headline">¶</a></h2>
+<span id="id8"></span><h2>Version 0.1<a class="headerlink" href="#version-0-1" title="Permalink to this headline">¶</a></h2>
 <p><em>08 July 2010</em></p>
 <p>First public release</p>
 </div>
@@ -128,12 +158,12 @@
         <li class="right" >
           <a href="how_to.html" title="How to"
              >previous</a> |</li>
-        <li><a href="index.html">python-odesk v0.2 alpha 1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">python-odesk v0.4 alpha 1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2010, odesk.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.
+        &copy; Copyright 2010-2011, odesk.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>
